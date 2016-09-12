@@ -1,0 +1,48 @@
+{
+    "foo": {
+        "id": "foo",
+        "maxConnections": 5,
+        "maxConnectionsPerHost": 2,
+        "maxConnectionsPerUser": 3,
+        "allowUnknownUser": true,
+        "groups": {
+            "$default": {
+                "allowAnonymousSender": true,
+                "maxReceivers": 10,
+                "users": "*",
+                "maxSessionWindow": 9999,
+                "maxFrameSize": 226622,
+                "sources": "public, private, $management",
+                "maxMessageSize": 1024,
+                "allowDynamicSource": false,
+                "remoteHosts": "*",
+                "maxSessions": 2,
+                "targets": "public, private, $management",
+                "maxSenders": 4
+            }
+        }
+    },
+    "bar": {
+        "id": "bar",
+        "maxConnections": 30,
+        "maxConnectionsPerHost": 20,
+        "maxConnectionsPerUser": 8,
+        "allowUnknownUser": true,
+        "groups": {
+            "$default": {
+                "allowAnonymousSender": true,
+                "maxReceivers": 99,
+                "users": "*",
+                "maxSessionWindow": 9999,
+                "maxFrameSize": 222222,
+                "sources": "public, private, $management",
+                "maxMessageSize": 222222,
+                "allowDynamicSource": true,
+                "remoteHosts": "*",
+                "maxSessions": 2,
+                "targets": "public, private, $management",
+                "maxSenders": 22
+            }
+        }
+    }
+}
