@@ -1,47 +1,47 @@
 {
-    "foo": {
-        "id": "foo",
-        "maxConnections": 5,
-        "maxConnectionsPerHost": 2,
-        "maxConnectionsPerUser": 3,
+    "hono": {
+        "id": "hono",
+        "maxConnections": 100,
+        "maxConnectionsPerUser": 20,
+        "maxConnectionsPerHost": 10,
         "allowUnknownUser": true,
         "groups": {
             "$default": {
-                "allowAnonymousSender": true,
-                "maxReceivers": 10,
-                "users": "*",
-                "maxSessionWindow": 9999,
-                "maxFrameSize": 226622,
-                "sources": "public, private, $management",
-                "maxMessageSize": 1024,
+                "allowAnonymousSender": false,
                 "allowDynamicSource": false,
-                "remoteHosts": "*",
-                "maxSessions": 2,
-                "targets": "public, private, $management",
-                "maxSenders": 4
+                "sources": "telemetry/*",
+                "targets": "telemetry/*"
+            },
+            "DEFAULT_TENANT": {
+                "allowAnonymousSender": false,
+                "allowDynamicSource": false,
+                "sources": "telemetry/DEFAULT_TENANT, telemetry/DEFAULT_TENANT/*",
+                "targets": "telemetry/DEFAULT_TENANT",
+                "users": "user1@HONO",
+                "remoteHosts": "*"
+            },
+            "anotherTenant": {
+                "allowAnonymousSender": false,
+                "allowDynamicSource": false,
+                "sources": "telemetry/anotherTenant",
+                "targets": "telemetry/anotherTenant",
+                "users": "user2@HONO",
+                "remoteHosts": "*"
             }
         }
     },
-    "bar": {
-        "id": "bar",
-        "maxConnections": 30,
-        "maxConnectionsPerHost": 20,
-        "maxConnectionsPerUser": 8,
+    "hono-internal": {
+        "id": "hono-internal",
+        "maxConnections": 10,
+        "maxConnectionsPerUser": 10,
+        "maxConnectionsPerHost": 10,
         "allowUnknownUser": true,
         "groups": {
             "$default": {
-                "allowAnonymousSender": true,
-                "maxReceivers": 99,
-                "users": "*",
-                "maxSessionWindow": 9999,
-                "maxFrameSize": 222222,
-                "sources": "public, private, $management",
-                "maxMessageSize": 222222,
-                "allowDynamicSource": true,
-                "remoteHosts": "*",
-                "maxSessions": 2,
-                "targets": "public, private, $management",
-                "maxSenders": 22
+                "allowAnonymousSender": false,
+                "allowDynamicSource": false,
+                "sources": "telemetry/*",
+                "targets": "telemetry/*"
             }
         }
     }
